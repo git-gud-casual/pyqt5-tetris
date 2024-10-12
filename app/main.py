@@ -1,4 +1,9 @@
 from sys import exit, argv
+import sys
+def exception_hook(exctype, value, traceback):
+    sys._excepthook(exctype, value, traceback)
+    sys.exit(1)
+sys.excepthook = exception_hook
 
 from PyQt5.QtWidgets import QApplication
 

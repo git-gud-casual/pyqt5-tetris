@@ -33,3 +33,4 @@ class GameOver(QDialog, game_over_ui.Ui_Dialog):
         name = self.name_line.text() or "Player"
         self.name_line.setText(name)
         DBInserter().add_score(name, self._score)
+        self.close()

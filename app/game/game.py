@@ -62,7 +62,7 @@ class Game:
         return self._next_shape
 
     def _drop_new_shape(self):
-        x_offset = (self.WIDTH - self._next_shape.width) // 2
+        x_offset = (self.WIDTH - self.next_shape.width) // 2
         self._active_shape = ShapeWithCoord(self.next_shape.shape, x_offset, 0)
         self._board.transfer_another_list(self._active_shape.shape, x_offset, 0)
         self._next_shape = None
