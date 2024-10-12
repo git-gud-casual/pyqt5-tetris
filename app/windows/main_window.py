@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtGui import QPixmap, QIcon
 
 from .ui import main_ui
-from .game import Game
+from .game_window import GameWindow
 from .settings import SettingsDialog
 from .score import ScoreDialog
 
@@ -13,7 +13,7 @@ from config import IMAGES_DIR
 
 class MainWindow(QMainWindow, main_ui.Ui_MainWindow):
     _setting: SettingsDialog
-    _game: Game
+    _game: GameWindow
 
     def __init__(self):
         super().__init__()
@@ -31,7 +31,7 @@ class MainWindow(QMainWindow, main_ui.Ui_MainWindow):
         self.exit_button.clicked.connect(self.close)
 
     def _start_game(self):
-        self._game = Game(self, self._settings.music_is_on)
+        self._game = GameWindow(self, self._settings.music_is_on)
         self._game.show()
         self.hide()
 
